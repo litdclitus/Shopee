@@ -5,19 +5,21 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
+  <link rel="stylesheet" href="./assets/css/base.css">
+  <link rel="stylesheet" href="./assets/css/main.css">
+  <link rel="stylesheet" href="./assets/css/grid.css">
+  <link rel="stylesheet" href="./assets/css/responsive.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" integrity="sha512-NhSC1YmyruXifcj/KFRWoC561YpHpc5Jtzgvbuzx5VozKpWvQ+4nXhPdFgmx8xqexRcpAglTj9sIBWINXa8x5w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;1,700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="./assets/css/base.css">
-  <link rel="stylesheet" href="./assets/css/main.css">
 </head>
 <body>
   <!-- HEADER -->
     <!--Navigation-->
     <div class="wrapper">
       <div class="header">
-        <div class="grid">
-          <nav class="navbar">
+        <div class="grid wide">
+          <nav class="navbar hide-on-tablet-mobile">
             <ul class="navbar__list">
               <li class="navbar__list-item">
                 <a href="#" class="navbar__list-item-link navbar__list-item-link--separator">Kênh người bán</a>
@@ -99,7 +101,10 @@
             </ul>
           </nav>
           <div class="header-with-search">
-            <div class="header-with-search__logo-wrapper">
+            <label for="search-mobile-checkbox" class="header-with-search__search-icon-mobile">
+              <i class="fa-solid fa-magnifying-glass"></i>
+            </label>
+            <div class="header-with-search__logo-wrapper hide-on-tablet">
               <a href="" class="header-with-search__link">
               <svg viewBox="0 0 192 65" class="header-with-search__img">
                 <g fill-rule="evenodd">
@@ -110,6 +115,7 @@
             </svg>
               </a>
             </div>
+            <input type="checkbox" hidden id="search-mobile-checkbox" class="header-search__checkbox" onclick="showSearch()">
             <div class="header-with-search__search-background">
               <div class="search-background__input-wrapper">
                 <input class="search-background__input" type="text" placeholder="Nhập để tìm kiếm sản phẩm">
@@ -121,7 +127,7 @@
                   </ul>
                 </div>
               </div>
-              <div class="search-background__selection">
+              <div class="search-background__selection hide-on-tablet-mobile">
                 <span class="search-background__selection-title">Trong shop</span>
                 <i class="search-background__selection-icon fa-solid fa-sort-down"></i>
                 <ul class="search-background__option">
@@ -279,11 +285,17 @@
             </div>
           </div>
         </div>
+        <ul class="header__sort-mt">
+          <li class="sort-mt__list sort-mt__list--active"><a href="" class="sort-mt__item">Phổ biến</a></li>
+          <li class="sort-mt__list"><a href="" class="sort-mt__item">Mới nhất</a></li>
+          <li class="sort-mt__list"><a href="" class="sort-mt__item">Bán chạy</a></li>
+          <li class="sort-mt__list"><a href="" class="sort-mt__item">Giá</a></li>
+        </ul>
       </div>
       <div class="container">
-        <div class="grid">
-          <div class="grid__row container__content">
-            <div class="grid__column-2">
+        <div class="grid wide">
+          <div class="row container__content">
+            <div class="col l-2 m-0 c-0">
               <nav class="category">
                 <h3 class="category__heading">
                   <i class="fa-solid fa-list-ul"></i>
@@ -302,8 +314,8 @@
                 </ul>
               </nav>
             </div>
-            <div class="grid__column-10">
-              <div class="product-filter">
+            <div class="col l-10 m-12 c-12">
+              <div class="product-filter hide-on-tablet-mobile">
                 <div class="product-filter__left-side">
                   <span class="product-filter__filter-by">Sắp xếp theo</span>
                   <button class="product-filter__btn btn btn--primary">Phổ biến</button>
@@ -329,9 +341,18 @@
                   </a>
                 </div>
               </div>
+              <nav class="category-tablet-mobile">
+                <ul class="category-sort">
+                  <li class="category-sort__list"><a href="" class="category-sort__item">Shopee Mall</a></li>
+                  <li class="category-sort__list"><a href="" class="category-sort__item">Freeship Extra</a></li>
+                  <li class="category-sort__list"><a href="" class="category-sort__item">Shop Yêu Thích</a></li>
+                  <li class="category-sort__list"><a href="" class="category-sort__item">Miễn Phí Vận Chuyển</a></li>
+                  <li class="category-sort__list"><a href="" class="category-sort__item">Đánh Giá</a></li>
+                </ul>
+              </nav>
               <div class="product">
-                <div class="grid__row">
-                  <div class="grid__column-2-4">
+                <div class="row sm-gutter">
+                  <div class="col l-2-4 m-4 c-6">
                     <a href="#" class="product-item">
                       <div class="product-item__image" style="background-image: url(https://bachkhoadientu.vn/Uploads/jac-dc-cai-55x21mm.jpg);"></div>
                       <div class="product-item__info">
@@ -366,7 +387,7 @@
                       </div>
                     </a>
                   </div>
-                  <div class="grid__column-2-4">
+                  <div class="col l-2-4 m-4 c-6">
                     <a href="#" class="product-item">
                       <div class="product-item__image" style="background-image: url(https://cf.shopee.vn/file/adf6448f3eacc46dcba06cbe5d6da483);"></div>
                       <div class="product-item__info">
@@ -400,7 +421,8 @@
                         <div class="product-item__sale-off-reduce">GIẢM</div>
                       </div>
                     </a>
-                  </div><div class="grid__column-2-4">
+                  </div>
+                  <div class="col l-2-4 m-4 c-6">
                     <a href="#" class="product-item">
                       <div class="product-item__image" style="background-image: url(https://cf.shopee.vn/file/de74f4a7fd5ae3620a2b49d775b57a93);"></div>
                       <div class="product-item__info">
@@ -434,7 +456,8 @@
                         <div class="product-item__sale-off-reduce">GIẢM</div>
                       </div>
                     </a>
-                  </div><div class="grid__column-2-4">
+                  </div>
+                  <div class="col l-2-4 m-4 c-6">
                     <a href="#" class="product-item">
                       <div class="product-item__image" style="background-image: url(https://laz-img-sg.alicdn.com/p/08a903dec27fbfd5c024108447d929ec.jpg);"></div>
                       <div class="product-item__info">
@@ -468,7 +491,8 @@
                         <div class="product-item__sale-off-reduce">GIẢM</div>
                       </div>
                     </a>
-                  </div><div class="grid__column-2-4">
+                  </div>
+                  <div class="col l-2-4 m-4 c-6">
                     <a href="#" class="product-item">
                       <div class="product-item__image" style="background-image: url(https://cf.shopee.vn/file/4a894b9452c62e384e016c0b1c06c384);"></div>
                       <div class="product-item__info">
@@ -502,7 +526,8 @@
                         <div class="product-item__sale-off-reduce">GIẢM</div>
                       </div>
                     </a>
-                  </div><div class="grid__column-2-4">
+                  </div>
+                  <div class="col l-2-4 m-4 c-6">
                     <a href="#" class="product-item">
                       <div class="product-item__image" style="background-image: url(https://cf.shopee.vn/file/7a6014b1ad48ab54422f0acc35e79385);"></div>
                       <div class="product-item__info">
@@ -536,7 +561,8 @@
                         <div class="product-item__sale-off-reduce">GIẢM</div>
                       </div>
                     </a>
-                  </div><div class="grid__column-2-4">
+                  </div>
+                  <div class="col l-2-4 m-4 c-6">
                     <a href="#" class="product-item">
                       <div class="product-item__image" style="background-image: url(https://cf.shopee.vn/file/27194775a3cc49c53a5fae6d1fac5605);"></div>
                       <div class="product-item__info">
@@ -570,7 +596,8 @@
                         <div class="product-item__sale-off-reduce">GIẢM</div>
                       </div>
                     </a>
-                  </div><div class="grid__column-2-4">
+                  </div>
+                  <div class="col l-2-4 m-4 c-6">
                     <a href="#" class="product-item">
                       <div class="product-item__image" style="background-image: url(https://cf.shopee.vn/file/4ed54ea8849f1843ed50116f543a456a);"></div>
                       <div class="product-item__info">
@@ -604,7 +631,8 @@
                         <div class="product-item__sale-off-reduce">GIẢM</div>
                       </div>
                     </a>
-                  </div><div class="grid__column-2-4">
+                  </div>
+                  <div class="col l-2-4 m-4 c-6">
                     <a href="#" class="product-item">
                       <div class="product-item__image" style="background-image: url(https://cf.shopee.vn/file/c2c2a9d4e700859f524fe4dbc02c26fa);"></div>
                       <div class="product-item__info">
@@ -638,7 +666,8 @@
                         <div class="product-item__sale-off-reduce">GIẢM</div>
                       </div>
                     </a>
-                  </div><div class="grid__column-2-4">
+                  </div>
+                  <div class="col l-2-4 m-4 c-6">
                     <a href="#" class="product-item">
                       <div class="product-item__image" style="background-image: url(https://cf.shopee.vn/file/7127aaac5b43513134091f446120714f);"></div>
                       <div class="product-item__info">
@@ -661,6 +690,181 @@
                             <i class="fa-solid fa-star"></i>
                           </div>
                           <div class="product-item__sold-amount">Đã bán 10k</div>
+                        </div>
+                        <div class="product-item__location">TP. Hồ Chí Minh</div>
+                      </div>
+                      <div class="product-item__liked">
+                        <div class="product-item__liked-text">Yêu thích+</div>
+                      </div>
+                      <div class="product-item__sale-label">
+                        <div class="product-item__sale-off-percent">47%</div>
+                        <div class="product-item__sale-off-reduce">GIẢM</div>
+                      </div>
+                    </a>
+                  </div>
+                  <div class="col l-2-4 m-4 c-6">
+                    <a href="#" class="product-item">
+                      <div class="product-item__image" style="background-image: url(https://bachkhoadientu.vn/Uploads/jac-dc-cai-55x21mm.jpg);"></div>
+                      <div class="product-item__info">
+                        <div class="product-item__name">Jack DC 5521/25 chất lượng ( BL64_48 )</div>
+                        <div class="product-item__voucher-hashtag">
+                          <div class="product-item__hashtag label-red">#ShopXuHuong</div>
+                          <div class="product-item__voucher label-orange">Giảm đ20k</div>
+                        </div>
+                        <div class="product-item__price-ship">
+                          <div class="product-item__price-range">1.000đ - 3.465đ
+                          </div>
+                          <div class="product-item__shipping"><i class="fa-solid fa-truck-fast"></i></div>
+                        </div>
+                        <div class="product-item__rating-sold ">
+                          <div class="product-item__rating <!--product-item__rating-none-->">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                          </div>
+                          <div class="product-item__sold-amount">Đã bán 5,7k</div>
+                        </div>
+                        <div class="product-item__location">TP. Hồ Chí Minh</div>
+                      </div>
+                      <div class="product-item__liked">
+                        <div class="product-item__liked-text">Yêu thích+</div>
+                      </div>
+                      <div class="product-item__sale-label">
+                        <div class="product-item__sale-off-percent">47%</div>
+                        <div class="product-item__sale-off-reduce">GIẢM</div>
+                      </div>
+                    </a>
+                  </div>
+                  <div class="col l-2-4 m-4 c-6">
+                    <a href="#" class="product-item">
+                      <div class="product-item__image" style="background-image: url(https://cf.shopee.vn/file/adf6448f3eacc46dcba06cbe5d6da483);"></div>
+                      <div class="product-item__info">
+                        <div class="product-item__name">Bàn phím máy tính Mini tiện dụng</div>
+                        <div class="product-item__voucher-hashtag">
+                          <div class="product-item__hashtag label-red">#ShopXuHuong</div>
+                          <div class="product-item__voucher label-orange">Giảm đ20k</div>
+                        </div>
+                        <div class="product-item__price-ship">
+                          <div class="product-item__price-range">89.000đ - 119.000đ
+                          </div>
+                          <div class="product-item__shipping"><i class="fa-solid fa-truck-fast"></i></div>
+                        </div>
+                        <div class="product-item__rating-sold ">
+                          <div class="product-item__rating <!--product-item__rating-none-->">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                          </div>
+                          <div class="product-item__sold-amount">Đã bán 1,2k</div>
+                        </div>
+                        <div class="product-item__location">TP. Hồ Chí Minh</div>
+                      </div>
+                      <div class="product-item__liked">
+                        <div class="product-item__liked-text">Yêu thích</div>
+                      </div>
+                      <div class="product-item__sale-label">
+                        <div class="product-item__sale-off-percent">36%</div>
+                        <div class="product-item__sale-off-reduce">GIẢM</div>
+                      </div>
+                    </a>
+                  </div>
+                  <div class="col l-2-4 m-4 c-6">
+                    <a href="#" class="product-item">
+                      <div class="product-item__image" style="background-image: url(https://cf.shopee.vn/file/de74f4a7fd5ae3620a2b49d775b57a93);"></div>
+                      <div class="product-item__info">
+                        <div class="product-item__name">Máy tính mini Chromebook chạy hệ điều hành Windows 10 hoặc ChromeOS</div>
+                        <div class="product-item__voucher-hashtag">
+                          <div class="product-item__hashtag label-red">#ShopXuHuong</div>
+                          <div class="product-item__voucher label-orange">Giảm đ20k</div>
+                        </div>
+                        <div class="product-item__price-ship">
+                          <div class="product-item__price-range">1.970.000đ - 2.680.465đ
+                          </div>
+                          <div class="product-item__shipping"><i class="fa-solid fa-truck-fast"></i></div>
+                        </div>
+                        <div class="product-item__rating-sold ">
+                          <div class="product-item__rating <!--product-item__rating-none-->">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                          </div>
+                          <div class="product-item__sold-amount">Đã bán 1k</div>
+                        </div>
+                        <div class="product-item__location">TP. Hồ Chí Minh</div>
+                      </div>
+                      <div class="product-item__liked">
+                        <div class="product-item__liked-text">Yêu thích+</div>
+                      </div>
+                      <div class="product-item__sale-label">
+                        <div class="product-item__sale-off-percent">20%</div>
+                        <div class="product-item__sale-off-reduce">GIẢM</div>
+                      </div>
+                    </a>
+                  </div>
+                  <div class="col l-2-4 m-4 c-6">
+                    <a href="#" class="product-item">
+                      <div class="product-item__image" style="background-image: url(https://laz-img-sg.alicdn.com/p/08a903dec27fbfd5c024108447d929ec.jpg);"></div>
+                      <div class="product-item__info">
+                        <div class="product-item__name">MODULE HẠ ÁP DSN-MINI-360 LM2596</div>
+                        <div class="product-item__voucher-hashtag">
+                          <div class="product-item__hashtag label-red">#ShopXuHuong</div>
+                          <div class="product-item__voucher label-orange">Giảm đ20k</div>
+                        </div>
+                        <div class="product-item__price-ship">
+                          <div class="product-item__price-range">9.000đ
+                        </div>
+                          <div class="product-item__shipping"><i class="fa-solid fa-truck-fast"></i></div>
+                        </div>
+                        <div class="product-item__rating-sold ">
+                          <div class="product-item__rating <!--product-item__rating-none-->">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                          </div>
+                          <div class="product-item__sold-amount">Đã bán 5,7k</div>
+                        </div>
+                        <div class="product-item__location">TP. Hồ Chí Minh</div>
+                      </div>
+                      <div class="product-item__liked">
+                        <div class="product-item__liked-text">Yêu thích+</div>
+                      </div>
+                      <div class="product-item__sale-label">
+                        <div class="product-item__sale-off-percent">47%</div>
+                        <div class="product-item__sale-off-reduce">GIẢM</div>
+                      </div>
+                    </a>
+                  </div>
+                  <div class="col l-2-4 m-4 c-6">
+                    <a href="#" class="product-item">
+                      <div class="product-item__image" style="background-image: url(https://cf.shopee.vn/file/4a894b9452c62e384e016c0b1c06c384);"></div>
+                      <div class="product-item__info">
+                        <div class="product-item__name">Máy tính bộ để bàn mini HP elitedesk 800 G2 ship Mỹ siêu nhỏ gọn siêu mạnh</div>
+                        <div class="product-item__voucher-hashtag">
+                          <div class="product-item__hashtag label-red">#ShopXuHuong</div>
+                          <div class="product-item__voucher label-orange">Giảm đ20k</div>
+                        </div>
+                        <div class="product-item__price-ship">
+                          <div class="product-item__price-range">9.000.000đ
+                          </div>
+                          <div class="product-item__shipping"><i class="fa-solid fa-truck-fast"></i></div>
+                        </div>
+                        <div class="product-item__rating-sold ">
+                          <div class="product-item__rating <!--product-item__rating-none-->">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                          </div>
+                          <div class="product-item__sold-amount">Đã bán 86</div>
                         </div>
                         <div class="product-item__location">TP. Hồ Chí Minh</div>
                       </div>
@@ -712,13 +916,12 @@
                 </li>
               </ul>
             </div>
-
           </div>
         </div>
         <div class="footer">
-          <div class="grid">
-            <div class="grid__row">
-              <div class="grid__column-2-4">
+          <div class="grid wide">
+            <div class="row">
+              <div class="col l-2-4 m-4 c-6 footer-1">
                 <h3 class="footer-heading">CHĂM SÓC KHÁCH HÀNG
                 </h3>
                 <ul class="footer-list">
@@ -768,7 +971,7 @@
                   </li>
                 </ul>
               </div>
-              <div class="grid__column-2-4">
+              <div class="col l-2-4 m-4 c-6 footer-2">
                 <h3 class="footer-heading">VỀ SHOPEE</h3>
                 <ul class="footer-list">
                   <li class="footer-item">
@@ -809,7 +1012,7 @@
                   </li>
                 </ul>
               </div>
-              <div class="grid__column-2-4">
+              <div class="col l-2-4 m-4 c-6 footer-3">
                 <h3 class="footer-heading">THANH TOÁN</h3>
                 <img class="footer-payment" src="https://brademar.com/wp-content/uploads/2022/05/Visa-Logo-PNG-2006-%E2%80%93-2014.png" alt="" >
                 <img class="footer-payment" src="https://static.loop.vn/wp-content/uploads/2021/11/02172708/logo-shopeepay.png" alt="" >
@@ -818,7 +1021,7 @@
                 <img class="footer-shipping" src="https://donhang.ghn.vn/static/media/Giao_Hang_Nhanh_Toan_Quoc_color.b7d18fe5.png" alt="">
                 <img class="footer-shipping" src="https://cdn.haitrieu.com/wp-content/uploads/2022/05/Logo-JT-Express-Slogan.png" alt="">
               </div>
-              <div class="grid__column-2-4">
+              <div class="col l-2-4 m-4 c-6 footer-4">
                 <h3 class="footer-heading">THEO DÕI CHÚNG TÔI TRÊN
                 </h3>
                 <ul class="footer-list">
@@ -842,7 +1045,7 @@
                   </li>
                 </ul>
               </div>
-              <div class="grid__column-2-4">
+              <div class="col l-2-4 m-4 c-6 footer-5">
                 <h3 class="footer-heading">TẢI ỨNG DỤNG SHOPEE NGAY THÔI
                 </h3>
                 <div class="footer-download">
@@ -857,7 +1060,6 @@
                     <a href="" class="footer-download__brand">
                       <img class="footer-download__store-brand" src="./assets/img/appgallery.png" alt="">
                     </a>
-
                   </div>
                 </div>
               </div>
@@ -866,9 +1068,9 @@
         </div>
       </div>
     </div>
-      <!-- <div class="modal"> -->
-        <!-- <div class="modal__overlay"></div> -->
-        <!-- <div class="modal__body"> -->
+      <!-- <div class="modal">
+        <div class="modal__overlay"></div>
+        <div class="modal__body"> -->
           <!--Register form-->
             <!-- <div class="auth-form">
               <div class="auth-form__container">
@@ -876,17 +1078,21 @@
                   <h3 class="auth-form__register">Đăng ký</h3>
                   <span class="auth-form__switch-btn">Đăng nhập</span>
                 </div>
-                <div class="auth-form__form-input">
+
+                <form action="" method="POST" class="auth-form__form-input" id="form-1">
                   <div class="auth-form__group">
-                    <input type="text" class="auth-form__input" placeholder="Nhập Email của bạn">
+                    <input id="email" name="email" type="text" placeholder="Nhập Email của bạn" class="auth-form__input">
+                    <span class="auth-form__message"></span>
                   </div>
                   <div class="auth-form__group">
-                    <input type="text" class="auth-form__input" placeholder="Nhập mật khẩu">
+                    <input id="password" name="password" type="password" placeholder="Nhập mật khẩu" class="auth-form__input">
+                    <span class="auth-form__message"></span>
                   </div>
                   <div class="auth-form__group">
-                    <input type="text" class="auth-form__input" placeholder="Nhập lại mật khẩu">
+                    <input id="password-confirmation" name="password-confirmation" type="password" placeholder="Nhập lại mật khẩu" class="auth-form__input">
+                    <span class="auth-form__message"></span>
                   </div>
-                </div>
+                </form>
                 <div class="agreement">
                   <span class="agreement__text">Bằng việc đăng ký, bạn đã đồng ý với Shopee về
                     <a href="#" class="agreement__text-policy">Điều khoản dịch vụ</a> &
@@ -953,9 +1159,22 @@
                         </div>
                       </div>
                     </div> -->
-          <!-- </div> -->
-        <!-- </div> -->
-      <!-- </div> -->
+          </div>
+        </div>
+      </div>
     </div>
+
+    <script src="./validator.js"></script>
+    <script>
+      //expectation
+      Validator({
+        form: '#form-1',
+        errorSlector: '.auth-form__message',
+        rules: [
+          Validator.isEmail('#email'),
+          Validator.minLength('#password', 6),
+        ]
+      });
+    </script>
   </body>
 </html>

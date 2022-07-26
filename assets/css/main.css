@@ -1,6 +1,9 @@
+.wrapper {
+  overflow: hidden;
+}
 .header {
-  height: 12rem;
-  background-image: linear-gradient(0,  #FE6331,#f5402d);
+  height: var(--header-height);
+  background-color: var(--primary-color);
 }
 .navbar {
   display: flex;
@@ -262,6 +265,47 @@
   padding: 12px 6px;
   color: var(--text-color);
 }
+/*sort-bar-mobile-tablet*/
+.header__sort-mt {
+  background-color: var(--white-color);
+  list-style: none;
+  height: var(--header-sort-height);
+  margin: 0;
+  padding-left: 0;
+  border-bottom: 1px solid #e4e4e4;
+  border-top: 1px solid #e4e4e4;
+  position: relative;
+  display: none;
+  -webkit-tap-highlight-color: transparent;
+}
+.sort-mt__list {
+  flex: 1;
+}
+.sort-mt__list--active {
+  border-bottom: 2px solid var(--primary-color);
+}
+.sort-mt__list::before {
+  content: "";
+  position: absolute;
+  border-left: 1px solid #e4e4e4e4;
+  top: 50%;
+  height: 36%;
+  transform: translateY(-50%);
+}
+.sort-mt__list:first-child.sort-mt__list::before {
+  display: none;
+}
+.sort-mt__item {
+  text-decoration: none;
+  color: var(--text-color);
+  font-size: 1.4rem;
+  text-align: center;
+  line-height: var(--header-sort-height);
+  display: block;
+}
+/* .sort-mt__item--active {
+  color: var(--primary-color);
+} */
 
 /*modal authenticate*/
 .modal{
@@ -271,6 +315,7 @@
   right: 0;
   bottom: 0;
   left: 0;
+  z-index: 1;
 }
 .modal__overlay{
   position: absolute;
@@ -399,15 +444,30 @@
   color: #9C9B9D;
   /* margin-left: 30px; */
 }
+.auth-form__group.invalid .auth-form__input {
+  border-color: #f33a58;
+  color: #f33a58;
+}
+.auth-form__group.invalid .auth-form__message {
+  color: #f33a58;
+}
+.auth-form__message {
+  display: block;
+  font-size: 1.2rem;
+  line-height: 1.6rem;
+  padding: 4px 2px;
+}
 
 /*hedaer-with-search*/
 .header-with-search{
+  position: relative;
   display: flex;
   align-items: center;
   height: var(--header-with-search-height);
 }
 .header-with-search__logo-wrapper{
   width: 200px;
+  -webkit-tap-highlight-color: transparent;
 }
 .header-with-search__link{
   text-decoration: none;
@@ -426,6 +486,16 @@
   position: relative;
   /* overflow: hidden; */
 }
+.header-with-search__search-icon-mobile {
+  font-size: 2.2rem;
+  line-height: 2.2rem;
+  position: absolute;
+  top: 50%;
+  color: var(--white-color);
+  transform: translate3d(26%, -50%, 0);
+  display: none;
+}
+
 .search-background__input{
   flex: 1;
   position: relative;
@@ -479,6 +549,7 @@
   display: none;
   padding: 0;
   box-shadow: 0 1px 3px rgb(190,190,190,190);
+  z-index: 2;
 }
 .search-background__items{
   font-size: 1.4rem;
@@ -550,11 +621,14 @@
   text-align: center;
   font-size: 2.4rem;
   color: var(--white-color);
+  user-select: none;
+  -webkit-user-select: none;
 }
 .header-with-cart__cart-wrapper{
   position: relative;
   display: inline-block;
   cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
 }
 .header-with-cart__cart-link{
   cursor: pointer;
@@ -885,6 +959,56 @@
   font-size: 1rem;
 }
 
+/*Category mobile tablet*/
+.category-tablet-mobile {
+  display: none;
+}
+.category-sort {
+  display: flex;
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+  overflow-x: auto;
+  user-select: none;
+  -webkit-user-select: none;
+}
+.category-sort::-webkit-scrollbar {
+  display: none;
+}
+.category-sort__list {
+  margin: 0 4px;
+  padding: 0 6px;
+}
+.category-sort__item {
+  --line-height: 2rem;
+  text-decoration: none;
+  display: block;
+  line-height: var(--line-height);
+  height: calc(var(--line-height) * 2);
+  width: 100px;
+  text-align: center;
+  font-size: 1.4rem;
+  color: var(--white-color);
+  -webkit-tap-highlight-color: transparent;
+  flex-shrink: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+.category-sort__list:nth-of-type(3n) {
+  background-color: #77C9BD;
+  border-radius: 3px;
+}
+.category-sort__list:nth-of-type(3n+1) {
+  background-color: #88ce81;
+  border-radius: 3px;
+}
+.category-sort__list:nth-of-type(3n+2) {
+  background-color: #86afd6;
+  border-radius: 3px;
+}
+
 /*product item*/
 .product {
   margin-top: 4px;
@@ -1037,7 +1161,7 @@
   display: flex;
   justify-content: center;
   margin: 48px 0;
-  padding: 0;
+  padding-left: 0;
 }
 .pagination__number-link {
   text-decoration: none;
@@ -1128,3 +1252,4 @@
   text-decoration: none;
   padding: 3px 0;
 }
+
